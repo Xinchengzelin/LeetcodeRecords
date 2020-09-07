@@ -25,31 +25,31 @@ class Solution:
         # return res
 
         # 迭代法  时间复杂度：O(n) 空间复杂度：O(n) 52 ms
-        # res=[]
-        # stack=[]
-        # cur=root
-        # while stack or cur:
-        #     while cur:#压入所有左子树的左节点
-        #         stack.append(cur)
-        #         cur=cur.left
-        #     cur=stack.pop()
-        #     res.append(cur.val)
-        #     cur=cur.right
-        # return res
+        res=[]
+        stack=[]
+        cur=root
+        while stack or cur:
+            while cur:#压入所有左子树的左节点
+                stack.append(cur)
+                cur=cur.left
+            cur=stack.pop()
+            res.append(cur.val)
+            cur=cur.right
+        return res
 
         # 标记迭代法，需要双倍存储空间  40ms
-        res=[]
-        stack=[(0,root)]
-        while stack:
-            flag,cur=stack.pop()
-            if not cur:
-                continue
-            if flag==0:
-                stack.append((0,cur.right))
-                stack.append((1,cur))
-                stack.append((0,cur.left))
-            else:
-                res.append(cur.val)
-        return res          
+        # res=[]
+        # stack=[(0,root)]
+        # while stack:
+        #     flag,cur=stack.pop()
+        #     if not cur:
+        #         continue
+        #     if flag==0:
+        #         stack.append((0,cur.right))
+        #         stack.append((1,cur))
+        #         stack.append((0,cur.left))
+        #     else:
+        #         res.append(cur.val)
+        # return res          
 # @lc code=end
 

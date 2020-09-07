@@ -13,18 +13,18 @@
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        #快慢指针法
-        slow,fast=head,head
-        while slow and fast.next:#fast.next排除了NoneType类型
-            slow=slow.next
-            fast=fast.next.next
-            if not fast:
-                return False
-            elif slow==fast:
-                return True
-        return False #增加这句时间从544ms减少到了80ms
+        #快慢指针法 76.68%/89.02%
+        # slow,fast=head,head
+        # while slow and fast.next:#fast.next排除了NoneType类型
+        #     slow=slow.next
+        #     fast=fast.next.next
+        #     if not fast:
+        #         return False
+        #     elif slow==fast:
+        #         return True
+        # return False #增加这句时间从544ms减少到了80ms
 
-        #哈希表法
+        #哈希表法 89.86%/32.66%
         dic={}
         while head:
             dic[head]=1

@@ -25,7 +25,8 @@ class Solution:
         # return res
 
         # 迭代法 44 ms
-        res=[]
+        if not root: return []
+        res=[]# 如果res=stack =[]是错误的，list是可变的，这样res和stack指向同一个变量
         stack=[]
         cur=root
         while stack or cur:
@@ -35,7 +36,22 @@ class Solution:
                 cur=cur.left
             cur=stack.pop()
             cur=cur.right
-        return res           
+        return res
+        # 迭代法-注意入栈先是右节点，后左节点
+        # if not root:
+        #     return []    
+        # res = []
+        # stack = [root]
+        # while stack:
+        #     node = stack.pop()
+        #     res.append(node.val)
+        #     if node.right:
+        #         stack.append(node.right)
+        #     if node.left:
+        #         stack.append(node.left)
+        # return res
+
+        
 
 # @lc code=end
 

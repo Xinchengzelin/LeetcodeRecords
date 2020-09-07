@@ -15,7 +15,7 @@
 # 特例101，
 
 # @lc code=start
-# 1、动态规划   83.03%、95.26%
+# 1、动态规划   83.03%、95.26% -逻辑太复杂
 # 每个i都要考虑s[i]是否“0”、s[i-1]是否是“0”和s[i-1:i+1]是否大于26、
 # class Solution:
 #     def numDecodings(self, s: str) -> int:
@@ -53,12 +53,12 @@ class Solution:
         if not s: return 0
         m=len(s)
         dp=[0]*(m+1)
-        dp[0]=1
+        dp[0]=1#dp[i] = dp[i-1]
         dp[1]= 0 if s[0]=="0" else 1
         for i in range(2,m+1):
-            if 0 < int(s[i-1:i]) <= 9:
+            if 0 < int(s[i-1:i]) <= 9:#当前字符能够解码
                 dp[i]=dp[i-1]
-            if 10 <= int(s[i-2:i])<=26:
+            if 10 <= int(s[i-2:i])<=26:#当前字符和它前一个字符，能够解码
                 dp[i]+=dp[i-2]
         return dp[m]
 
