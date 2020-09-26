@@ -45,13 +45,14 @@ class Solution:
 #                 l=mid
 #         return int(l)
 
-# 4、牛顿迭代法 84.38%
+# 4、牛顿迭代法 84.38%  ---x = x0 - f(x0)/f'(x0)
 # class Solution:
 #     def mySqrt(self, x: int) -> int:
 #         cur=1
 #         while True:
 #             pre=cur
 #             cur=(cur+x/cur)/2
+#             # cur = cur - (cur*2-x)/(2*cur)#为什么不对？
 #             if abs(cur-pre)<=1e-6:
 #                 return int(cur)
 
