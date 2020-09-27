@@ -19,7 +19,7 @@ class Solution:
                 return None
             val = postorder.pop()#关键
             index = dic[val]
-            root = TreeNode(val)
+            root = TreeNode(val)#递归到每一层都创建一个二叉树
             root.right = helper(index+1,right)#右子树在前，
             #如果按每次选择「后序遍历的最后一个节点」为根节点，则先
             # 被构造出来的应该为右子树。
