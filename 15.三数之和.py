@@ -12,7 +12,7 @@ class Solution:
         res=[]
         nums.sort()
         for i in range(len(nums)-2):
-            if i>0 and nums[i]==nums[i-1]:
+            if i>0 and nums[i]==nums[i-1]:#新一轮i和上次i的值一样
                 continue
             l=i+1
             r=len(nums)-1

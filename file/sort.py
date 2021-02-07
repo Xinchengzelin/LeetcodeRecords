@@ -28,25 +28,25 @@
 #                 j -= 1
 #             arr[j+1] = key#注意是j+1 
 #         print(arr)
-# # 4、快速排序 - 分治，直接修改数组in place
-# class Solution:            
-#     def Sort(self,begin,end,arr):
-#         if begin >= end:
-#             return
-#         pivot_index = self.partion(begin,end,arr)
-#         self.Sort(begin,pivot_index-1,arr)
-#         self.Sort(pivot_index+1,end,arr)
-#         print(arr)
+# 4、快速排序 - 分治，直接修改数组in place
+class Solution:            
+    def Sort(self,begin,end,arr):
+        if begin >= end:
+            return
+        pivot_index = self.partion(begin,end,arr)
+        self.Sort(begin,pivot_index-1,arr)
+        self.Sort(pivot_index+1,end,arr)#pivot_index不包含
+        print(arr)
 
-#     def partion(self,begin,end,num):
-#         pivot=end #标杆位置
-#         counter = begin #小于标杆的个数
-#         for i in range(begin,end):
-#             if num[i] < num[pivot]:
-#                 num[i],num[counter] = num[counter],num[i]
-#                 counter += 1
-#         num[pivot],num[counter] = num[counter],num[pivot]#pivot_index前面都小于，后面都大于等于
-#         return counter
+    def partion(self,begin,end,num):
+        pivot=end #标杆位置
+        counter = begin #小于标杆的个数
+        for i in range(begin,end):
+            if num[i] < num[pivot]:
+                num[i],num[counter] = num[counter],num[i]
+                counter += 1
+        num[pivot],num[counter] = num[counter],num[pivot]#pivot_index前面都小于，后面都大于等于
+        return counter
 # # 5、归并排序 - 分成两个长度n/2的序列，然后分别排序（递归排序），最后合并
 class Solution:            
     def Sort(self,left,right,arr):
@@ -73,7 +73,7 @@ class Solution:
         while j <= right:
             temp.append(arr[j])
             j += 1
-        arr[left:right+1] = temp
+        arr[left:right+1] = temp#这句很关键
         print(arr)
 # # 6、堆排序 - 
 # import heapq
